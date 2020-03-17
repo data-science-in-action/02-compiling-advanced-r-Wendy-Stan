@@ -1,0 +1,29 @@
+---
+title: "README"
+author: "刘崟"
+date: "2020/3/17"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Problems and Solutions to Compile a PDF Version of Advanced R
+#### 刘崟
+
+将R更新到最新版本，用命令devtools::install_github("hadley/sloop") 和 devtools::install_github("hadley/emo")安装需要使用的R包。之后开始build advanced-R这本书。在此过程中遇到了一些问题，下面是我的解决方法。
+
+## ‘make’ not Found
+安装Rtools，并且在安装过程中勾选添加路径。
+
+## 缺失的R包
+用install.packages()命令安装了一些缺失的R包，像bookdown, lobstr, tibble, bench, dbplyr, tinytex…
+
+## “xelatex” not Found
+安装了tinytes包未能解决，参考Yelie Yuan的解决方法，安装了MiKTeX，并且检查更新后成功解决。
+
+## 缺少的字体
+Rstudio报错找不到字体Inconsolata 和 AndaleMono，手动下载并安装后再次运行build book，成功完成。
